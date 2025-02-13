@@ -12,10 +12,11 @@ class Car:
     
     def __str__(self):
         
-        return f'The {self.colour} car has {self.mileage:,} miles'  #the extra comma after mileage is a format specifier to group thousands with ,
+        return f'The {self.colour} car has {self.mileage:,} miles'  #the extra comma after mileage is a format specifier to group thousands with ","
+        
 
-car1 = Car('blue', 20000)
-car2 = Car('red', 30000)
+car1 = Car('blue', 20_000)
+car2 = Car('red', 30_000)
 
 print(car1)
 print(car2)
