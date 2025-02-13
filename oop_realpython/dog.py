@@ -5,10 +5,9 @@ https://realpython.com/python3-object-oriented-programming/
 class Dog:
     species = "Canis Familiaris"            #class attribute
 
-    def __init__(self, name, age, breed):
+    def __init__(self, name, age):
         self.name = name                    #instance attributes
         self.age = age
-        self.breed = breed
     
     #instance method
     #def description(self):
@@ -17,18 +16,28 @@ class Dog:
 
     #another instance method
     def speak(self, sound):
-        return f'{self.name} says {sound}'
+        return f'{self.name} barks: {sound}'
 
-"""
-initialising an object with name and age attributes
-fido = Dog('Fido', 4)
-miles = Dog('Miles', 5)
+class JackRussellTerrier(Dog):
+    #parent class functionality extension 
+    #overriding method definition from parent class
+    def speak(self, sound="Arf"):
+        return f"{self.name} says {sound}"
 
-print(miles)
-print(miles.speak('woof, woof'))
-"""
-miles = Dog('Miles', 4, 'Jack Russell Terrier')
-buddy = Dog('Buddy', 9, 'Dachshund')
-jack = Dog('Jack', 3, 'Bulldog')
-jim = Dog('Jim', 5, 'Bulldog')
+class Dachshund(Dog):
+    #overriding method but keeping parent class formatting with super()
+    def speak(self, sound="Yap"):
+        return super().speak(sound) 
+
+class Bulldog(Dog):
+    pass
+
+class GoldenRetriever(Dog):
+    def speak(self, sound="Bark"):
+        return super().speak(sound)
+
+miles = JackRussellTerrier("Miles", 4)
+buddy = Dachshund("Buddy", 9)
+jack = Bulldog("Jack", 3)
+jim = Bulldog("Jim", 5)
 
